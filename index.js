@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const cors = require('cors');
 
 const app = express();
-const PORT = 4000;
+const port = process.env.PORT || 4000;
 
 // Allow only your frontend origin to access the proxy (adjust as needed)
 app.use(cors({
@@ -32,6 +32,6 @@ app.post('/hive-bridge', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Proxy server running at http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 }); 
