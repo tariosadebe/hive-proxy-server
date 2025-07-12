@@ -32,7 +32,7 @@ app.post('/hive-bridge', async (req, res) => {
       timestamp: new Date().toISOString()
     });
 
-    const response = await fetch('https://rpc.ecency.com/', {
+    const response = await fetch('https://api.deathwing.me/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(req.body),
@@ -52,7 +52,7 @@ app.post('/hive-bridge', async (req, res) => {
   } catch (error) {
     console.error('Proxy fetch error:', error);
     res.status(502).json({ 
-      error: 'Failed to fetch from Hive API',
+      error: 'Failed to fetch from Hive API (api.deathwing.me)',
       details: error.message,
       timestamp: new Date().toISOString()
     });
